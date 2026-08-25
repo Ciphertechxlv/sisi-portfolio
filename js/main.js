@@ -199,31 +199,7 @@ function initServiceTabs() {
 }
 
 /* ─────────────────────────────────────────────
-   7. WRITE & PONDER SCENE
-   The animation itself is pure CSS (always looping);
-   this just pauses it while off-screen so it isn't
-   animating somewhere nobody can see.
-───────────────────────────────────────────── */
-function initWriteScene() {
-  const strip = document.getElementById('writeStrip');
-  if (!strip) return;
-
-  const animatedEls = strip.querySelectorAll('.wp-pen, .wp-mark1, .wp-mark2, .wp-mark3, .wp-dots');
-  if (!animatedEls.length) return;
-
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      animatedEls.forEach(el => {
-        el.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
-      });
-    });
-  }, { threshold: 0.1 });
-
-  io.observe(strip);
-}
-
-/* ─────────────────────────────────────────────
-   8. INIT ALL
+   7. INIT ALL
 ───────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
@@ -232,5 +208,4 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initThemeToggle();
   initServiceTabs();
-  initWriteScene();
 });
