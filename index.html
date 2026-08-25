@@ -329,98 +329,58 @@
 
       <!--
         ══════════════════════════════════════════════
-        HOW TO ADD OMOYENI'S PHOTOS:
+        HOW TO ADD SISI'S PHOTO:
 
-        Replace <p class="photo-card__placeholder"> with:
-        <img src="assets/images/photo-1.jpg" alt="Omoyeni">
+        Replace <p class="photo-card__placeholder"> below with:
+        <img src="assets/images/sisi.jpg" alt="Sisi">
 
-        Make sure the image is in the assets/images/ folder
-        and named correctly. Supported formats: jpg, webp, png
+        Put the image file in assets/images/ first.
+        Supported formats: jpg, webp, png. A portrait-orientation
+        photo (taller than wide) fits this card best.
         ══════════════════════════════════════════════
       -->
-      <div class="photo-grid reveal" aria-label="Photos of Omoyeni">
-        <div class="photo-card">
-          <div class="photo-card__img"><p class="photo-card__placeholder">Add Omoyeni's<br>photo here</p></div>
+      <div class="photo-card reveal" aria-label="Photo of Sisi">
+        <span class="card__tab" style="background:var(--yellow);"></span>
+        <div class="photo-card__img">
+          <p class="photo-card__placeholder">Add Sisi&rsquo;s<br>photo here</p>
         </div>
-        <div class="photo-card">
-          <div class="photo-card__img"><p class="photo-card__placeholder">Add photo<br>here</p></div>
-        </div>
-        <div class="photo-card">
-          <div class="photo-card__img"><p class="photo-card__placeholder">Add photo<br>here</p></div>
-        </div>
-        <div class="photo-card">
-          <div class="photo-card__img"><p class="photo-card__placeholder">Add photo<br>here</p></div>
-        </div>
+        <p class="photo-card__caption">Sisi · Lagos, Nigeria</p>
       </div>
     </div>
   </section>
 
   <!-- ════════════════════════════════════════
-       CONTACT
+       CONTACT → now lives inside the footer below
   ════════════════════════════════════════ -->
-  <section id="contact">
-    <div class="section-heading">
-      <h2 class="section-heading__title">Let's Work</h2>
-      <span class="section-heading__meta">Open for new projects</span>
-    </div>
-
-    <div class="card contact-card reveal">
-      <span class="card__tab" style="background:var(--yellow);"></span>
-      <h2 class="contact-card__heading">Have a story worth <em>telling?</em></h2>
-      <p class="contact-card__sub">
-        Open for freelance, collaborations, and brand partnerships.
-        Let's make something people will actually read.
-      </p>
-      <a class="btn btn--primary" href="mailto:omoyeni@email.com">Send Me A Message →</a>
-
-      <div class="contact-links">
-        <!-- UPDATE: replace with Omoyeni's real links -->
-        <a class="contact-link" href="https://substack.com" target="_blank" rel="noopener noreferrer">SUBSTACK ↗</a>
-        <a class="contact-link" href="mailto:omoyeni@email.com">EMAIL ↗</a>
-        <a class="contact-link" href="#" target="_blank" rel="noopener noreferrer">TWITTER / X ↗</a>
-        <a class="contact-link" href="#" target="_blank" rel="noopener noreferrer">LINKEDIN ↗</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════════════════════════════════════
-       WRITE & PONDER — footer animation
-  ════════════════════════════════════════ -->
-  <div class="write-strip" id="writeStrip">
-    <span class="write-strip__label">Always writing</span>
-    <div class="write-scene">
-      <svg viewBox="0 0 140 100" xmlns="http://www.w3.org/2000/svg" fill="none" aria-hidden="true">
-        <!-- notebook page -->
-        <rect x="10" y="14" width="90" height="76" rx="4" fill="var(--bg-soft)" stroke="var(--border-soft)" stroke-width="1.5"/>
-        <!-- ink marks (fade in as the pen "writes" each line) -->
-        <rect class="wp-mark1" x="20" y="28" width="65" height="4" rx="2" fill="var(--coral)" opacity="0"/>
-        <rect class="wp-mark2" x="20" y="53" width="65" height="4" rx="2" fill="var(--coral)" opacity="0"/>
-        <rect class="wp-mark3" x="20" y="78" width="65" height="4" rx="2" fill="var(--coral)" opacity="0"/>
-        <!-- seated figure, chin resting near thinking spot -->
-        <circle cx="118" cy="45" r="10" fill="var(--violet)" opacity="0.85"/>
-        <path d="M104 94 C104 74 110 62 118 64 C126 62 132 74 132 94 Z" fill="var(--violet)" opacity="0.6"/>
-        <!-- thought dots, only visible while pondering -->
-        <g class="wp-dots" opacity="0">
-          <circle cx="112" cy="24" r="2"   fill="var(--yellow)"/>
-          <circle cx="120" cy="19" r="2.4" fill="var(--yellow)"/>
-          <circle cx="129" cy="22" r="1.8" fill="var(--yellow)"/>
-        </g>
-        <!-- pen: animated via CSS transform, travels between the page lines and the pondering spot -->
-        <g class="wp-pen">
-          <line x1="0" y1="0" x2="10" y2="-8" stroke="var(--text)" stroke-width="2.6" stroke-linecap="round"/>
-          <circle cx="0" cy="0" r="1.6" fill="var(--coral)"/>
-        </g>
-      </svg>
-    </div>
-  </div>
 
 </main>
 
 <!-- ════════════════════════════════════════
-     FOOTER
+     FOOTER — this IS the contact section now,
+     not a boxed card sitting above a separate footer.
 ════════════════════════════════════════ -->
-<footer class="footer">
+<footer class="footer" id="contact">
+  <div class="footer__band">
+    <span class="card__tab" style="background:var(--yellow);"></span>
+    <span class="footer__eyebrow">Open for new projects</span>
+    <h2 class="footer__heading">Have a story worth <em>telling?</em></h2>
+    <p class="footer__sub">
+      Open for freelance, collaborations, and brand partnerships.
+      Let's make something people will actually read.
+    </p>
+    <a class="btn btn--primary" href="mailto:omoyeni@email.com">Send Me A Message →</a>
+
+    <div class="contact-links">
+      <!-- UPDATE: replace with Omoyeni's real links -->
+      <a class="contact-link" href="https://substack.com" target="_blank" rel="noopener noreferrer">SUBSTACK ↗</a>
+      <a class="contact-link" href="mailto:omoyeni@email.com">EMAIL ↗</a>
+      <a class="contact-link" href="#" target="_blank" rel="noopener noreferrer">TWITTER / X ↗</a>
+      <a class="contact-link" href="#" target="_blank" rel="noopener noreferrer">LINKEDIN ↗</a>
+    </div>
+  </div>
+
   <div class="footer__inner">
+    <span class="write-tag font-mono-ui">Always writing<span class="write-cursor">_</span></span>
     <span class="footer__signature">Sisi · Writer &amp; Storyteller · Lagos, Nigeria</span>
     <span class="footer__signature">© 2025 · Built by Cipher</span>
   </div>
