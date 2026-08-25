@@ -410,6 +410,36 @@ a:focus-visible, button:focus-visible {
   color: var(--text-faint);
 }
 
+.note-trigger { cursor: pointer; }
+.note-trigger:hover { color: var(--coral); }
+
+/* Explicit style resets so this popover can never inherit weird
+   tracking/case/font styling from whatever element it's triggered from */
+.note-popover {
+  position: absolute;
+  z-index: 500;
+  max-width: 220px;
+  background: var(--bg-card);
+  border: 2px solid var(--coral);
+  border-radius: 0.75rem;
+  padding: 0.65rem 0.95rem;
+  font-family: var(--font-body) !important;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+  color: var(--text);
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.28);
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  pointer-events: none;
+}
+.note-popover.is-visible { opacity: 1; transform: translateY(0); }
+
 /* ─────────────────────────────────────────────
    8. CARDS — the job board's rounded-2xl / p-5 /
    border-2 / pinned-tab pattern, reused everywhere
@@ -486,6 +516,16 @@ a:focus-visible, button:focus-visible {
 .featured-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; margin-bottom: 1.25rem; }
 @media (min-width: 900px) {
   .featured-grid { grid-template-columns: 1fr 1fr; }
+}
+.featured-grid--single { grid-template-columns: 1fr !important; }
+
+.section-subhead {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 0.9rem;
 }
 
 .book-cover {
@@ -569,7 +609,8 @@ a:focus-visible, button:focus-visible {
   align-items: center;
   justify-content: center;
   line-height: 1.25;
-  min-height: 3rem;
+  height: 3.75rem;
+  padding: 0.5rem 0.9rem;
 }
 
 .tabs__panel-num { font-family: var(--font-mono); font-size: 0.75rem; color: var(--coral); font-weight: 700; }
@@ -693,24 +734,73 @@ a:focus-visible, button:focus-visible {
 
 .footer__sub { color: var(--text-soft); font-size: 0.95rem; font-weight: 300; max-width: 46ch; margin-bottom: 1.75rem; line-height: 1.75; }
 
-.email-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-.email-actions .btn--outline.is-copied { border-color: var(--green); color: var(--green); }
-
-.contact-links { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.75rem; }
+.contact-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.6rem;
+  margin-top: 1.75rem;
+}
 .contact-link {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.4rem;
+  width: 100%;
+  height: 2.75rem;
   font-family: var(--font-mono);
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  padding: 0.6rem 1.1rem;
+  padding: 0 1rem;
   border-radius: 999px;
   border: 2px solid var(--border-soft);
+  background: transparent;
   color: var(--text);
+  cursor: pointer;
   transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
 }
 .contact-link:hover { border-color: var(--coral); color: var(--coral); transform: translateY(-1px); }
+
+/* Email button doubles as a dropdown trigger for Send / Copy */
+.email-menu-wrap { position: relative; }
+.email-menu-wrap .contact-link { width: 100%; }
+.email-menu {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 0.5rem);
+  z-index: 40;
+  background: var(--bg-card);
+  border: 2px solid var(--border-soft);
+  border-radius: 0.9rem;
+  padding: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.25);
+}
+.email-menu.is-open { opacity: 1; visibility: visible; transform: translateY(0); }
+.email-menu__item {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.6rem;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.email-menu__item:hover { background: var(--bg-soft); color: var(--coral); }
+.email-menu__item.is-copied { color: var(--green); }
+
+.footer__credit-link { color: var(--text-faint); text-decoration: underline; text-underline-offset: 2px; transition: color 0.15s ease; }
+.footer__credit-link:hover { color: var(--coral); }
 
 /* Signature strip — the job board's minimal footer pattern,
    plus one small honest detail: a blinking mono cursor,
@@ -856,5 +946,5 @@ a:focus-visible, button:focus-visible {
   .card { padding: 1.1rem; }
   .footer__band { padding: 2.5rem 1rem 2rem; }
   .tabs__pills { grid-template-columns: 1fr; }
-  .email-actions { flex-direction: column; align-items: stretch; }
+  .contact-links { grid-template-columns: 1fr; }
 }

@@ -41,44 +41,71 @@ function initMobileNav() {
 }
 
 /* ─────────────────────────────────────────────
-   2. LIGHTBOX
+   NOTE POPOVER — shared by every easter egg on
+   the site (theme toggle, section-meta triggers).
+   Appended straight to <body> with explicit style
+   resets in CSS so it can never inherit odd
+   tracking/case/font styling from a nested trigger.
 ───────────────────────────────────────────── */
-function initLightbox() {
-  const overlay  = document.getElementById('bookLightbox');
-  const closeBtn = document.getElementById('lbClose');
-  const ghostBtn = document.getElementById('lbGhost');
-  const trigger  = document.getElementById('bookCardTrigger');
-  if (!overlay) return;
+let activeNotePopover = null;
+let activeNotePopoverTimer = null;
 
-  function openLightbox() {
-    overlay.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
-    closeBtn && closeBtn.focus();
+function closeNotePopover() {
+  if (activeNotePopover) {
+    activeNotePopover.remove();
+    activeNotePopover = null;
   }
-  function closeLightbox() {
-    overlay.classList.remove('is-open');
-    document.body.style.overflow = '';
+  clearTimeout(activeNotePopoverTimer);
+}
+
+function showNotePopover(triggerEl, message) {
+  closeNotePopover();
+
+  const pop = document.createElement('div');
+  pop.className = 'note-popover';
+  pop.textContent = message;
+  pop.setAttribute('role', 'status');
+  document.body.appendChild(pop);
+
+  const rect = triggerEl.getBoundingClientRect();
+  const popRect = pop.getBoundingClientRect();
+  let left = rect.left + rect.width / 2 - popRect.width / 2 + window.scrollX;
+  left = Math.max(12, Math.min(left, window.innerWidth - popRect.width - 12 + window.scrollX));
+  const top = rect.bottom + window.scrollY + 10;
+
+  pop.style.left = left + 'px';
+  pop.style.top = top + 'px';
+
+  requestAnimationFrame(() => pop.classList.add('is-visible'));
+
+  activeNotePopover = pop;
+  activeNotePopoverTimer = setTimeout(closeNotePopover, 2800);
+}
+
+document.addEventListener('click', e => {
+  if (activeNotePopover && !e.target.closest('.note-popover') && !e.target.closest('.note-trigger') && !e.target.closest('#themeToggle')) {
+    closeNotePopover();
   }
+});
+document.addEventListener('scroll', closeNotePopover, { passive: true });
 
-  trigger && trigger.addEventListener('click', openLightbox);
-  trigger && trigger.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(); }
-  });
-
-  closeBtn && closeBtn.addEventListener('click', closeLightbox);
-  ghostBtn && ghostBtn.addEventListener('click', closeLightbox);
-
-  overlay.addEventListener('click', e => {
-    if (e.target === overlay) closeLightbox();
-  });
-
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeLightbox();
+function initNoteTriggers() {
+  document.querySelectorAll('.note-trigger[data-note]').forEach(trigger => {
+    trigger.addEventListener('click', e => {
+      e.stopPropagation();
+      showNotePopover(trigger, trigger.dataset.note);
+    });
+    trigger.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        showNotePopover(trigger, trigger.dataset.note);
+      }
+    });
   });
 }
 
 /* ─────────────────────────────────────────────
-   3. SCROLL REVEAL
+   2. SCROLL REVEAL
 ───────────────────────────────────────────── */
 function initReveal() {
   const els = document.querySelectorAll('.reveal');
@@ -162,6 +189,7 @@ function initThemeToggle() {
     document.documentElement.setAttribute('data-theme', next);
     try { sessionStorage.setItem('sisi-theme', next); } catch (e) { /* no-op */ }
     render(next);
+    showNotePopover(btn, next === 'dark' ? "Hope you're not scared of the dark" : 'Up NEPA');
   });
 }
 
@@ -199,7 +227,40 @@ function initServiceTabs() {
 }
 
 /* ─────────────────────────────────────────────
-   7. COPY EMAIL BUTTON
+   7. EMAIL DROPDOWN MENU
+───────────────────────────────────────────── */
+function initEmailMenu() {
+  const btn  = document.getElementById('emailMenuBtn');
+  const menu = document.getElementById('emailMenu');
+  if (!btn || !menu) return;
+
+  function open() {
+    menu.classList.add('is-open');
+    btn.setAttribute('aria-expanded', 'true');
+  }
+  function close() {
+    menu.classList.remove('is-open');
+    btn.setAttribute('aria-expanded', 'false');
+  }
+
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    menu.classList.contains('is-open') ? close() : open();
+  });
+
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.email-menu-wrap')) close();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') close();
+  });
+
+  // Sending an email navigates away via mailto, closing the menu is harmless either way
+  menu.querySelector('a.email-menu__item')?.addEventListener('click', close);
+}
+
+/* ─────────────────────────────────────────────
+   8. COPY EMAIL BUTTON
 ───────────────────────────────────────────── */
 function initCopyEmail() {
   const btn = document.getElementById('copyEmailBtn');
@@ -230,19 +291,22 @@ function initCopyEmail() {
     resetTimer = setTimeout(() => {
       label.textContent = 'Copy Email';
       btn.classList.remove('is-copied');
-    }, 2000);
+      document.getElementById('emailMenu')?.classList.remove('is-open');
+      document.getElementById('emailMenuBtn')?.setAttribute('aria-expanded', 'false');
+    }, 1400);
   });
 }
 
 /* ─────────────────────────────────────────────
-   8. INIT ALL
+   9. INIT ALL
 ───────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
-  initLightbox();
   initReveal();
   initSmoothScroll();
   initThemeToggle();
   initServiceTabs();
+  initEmailMenu();
   initCopyEmail();
+  initNoteTriggers();
 });
