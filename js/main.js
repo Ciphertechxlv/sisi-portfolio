@@ -154,13 +154,13 @@ function initThemeToggle() {
     btn.setAttribute('aria-label', theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
   }
 
-  render(document.documentElement.getAttribute('data-theme') || 'dark');
+  render(document.documentElement.getAttribute('data-theme') || 'light');
 
   btn.addEventListener('click', () => {
-    const current = document.documentElement.getAttribute('data-theme') || 'dark';
+    const current = document.documentElement.getAttribute('data-theme') || 'light';
     const next = current === 'light' ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', next);
-    try { localStorage.setItem('sisi-theme', next); } catch (e) { /* no-op */ }
+    try { sessionStorage.setItem('sisi-theme', next); } catch (e) { /* no-op */ }
     render(next);
   });
 }
@@ -199,7 +199,43 @@ function initServiceTabs() {
 }
 
 /* ─────────────────────────────────────────────
-   7. INIT ALL
+   7. COPY EMAIL BUTTON
+───────────────────────────────────────────── */
+function initCopyEmail() {
+  const btn = document.getElementById('copyEmailBtn');
+  const label = document.getElementById('copyEmailLabel');
+  if (!btn || !label) return;
+
+  const email = btn.dataset.email;
+  let resetTimer = null;
+
+  btn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+    } catch (e) {
+      // Fallback for older browsers / no clipboard permission
+      const temp = document.createElement('textarea');
+      temp.value = email;
+      temp.style.position = 'fixed';
+      temp.style.opacity = '0';
+      document.body.appendChild(temp);
+      temp.select();
+      try { document.execCommand('copy'); } catch (err) { /* no-op */ }
+      document.body.removeChild(temp);
+    }
+
+    label.textContent = 'Copied!';
+    btn.classList.add('is-copied');
+    clearTimeout(resetTimer);
+    resetTimer = setTimeout(() => {
+      label.textContent = 'Copy Email';
+      btn.classList.remove('is-copied');
+    }, 2000);
+  });
+}
+
+/* ─────────────────────────────────────────────
+   8. INIT ALL
 ───────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
@@ -208,4 +244,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initThemeToggle();
   initServiceTabs();
+  initCopyEmail();
 });
