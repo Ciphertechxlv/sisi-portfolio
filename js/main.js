@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   OMOYENI PORTFOLIO — MAIN JAVASCRIPT
+   SISI PORTFOLIO — MAIN JAVASCRIPT
    js/main.js
    ═══════════════════════════════════════════════════════════ */
 
@@ -9,7 +9,7 @@
    1. MOBILE NAV
 ───────────────────────────────────────────── */
 function initMobileNav() {
-  const toggle   = document.getElementById('navToggle');
+  const toggle    = document.getElementById('navToggle');
   const mobileNav = document.getElementById('mobileNav');
   if (!toggle || !mobileNav) return;
 
@@ -20,12 +20,10 @@ function initMobileNav() {
     document.body.style.overflow = isOpen ? 'hidden' : '';
   });
 
-  // Close on any mobile link click
   mobileNav.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', closeNav);
   });
 
-  // Close on outside click
   document.addEventListener('click', e => {
     if (
       mobileNav.classList.contains('is-open') &&
@@ -57,7 +55,6 @@ function initLightbox() {
     document.body.style.overflow = 'hidden';
     closeBtn && closeBtn.focus();
   }
-
   function closeLightbox() {
     overlay.classList.remove('is-open');
     document.body.style.overflow = '';
@@ -68,15 +65,13 @@ function initLightbox() {
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(); }
   });
 
-  closeBtn  && closeBtn.addEventListener('click', closeLightbox);
-  ghostBtn  && ghostBtn.addEventListener('click', closeLightbox);
+  closeBtn && closeBtn.addEventListener('click', closeLightbox);
+  ghostBtn && ghostBtn.addEventListener('click', closeLightbox);
 
-  // Close on backdrop click
   overlay.addEventListener('click', e => {
     if (e.target === overlay) closeLightbox();
   });
 
-  // Escape key
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeLightbox();
   });
@@ -89,10 +84,9 @@ function initReveal() {
   const els = document.querySelectorAll('.reveal');
   if (!els.length) return;
 
-  // Stagger delay for grid children
-  document.querySelectorAll('.work-grid, .services-grid').forEach(grid => {
+  document.querySelectorAll('.work-grid, .featured-grid').forEach(grid => {
     grid.querySelectorAll('.reveal').forEach((el, i) => {
-      el.style.transitionDelay = (i * 0.07) + 's';
+      el.style.transitionDelay = (i * 0.06) + 's';
     });
   });
 
@@ -109,23 +103,7 @@ function initReveal() {
 }
 
 /* ─────────────────────────────────────────────
-   4. STICKY NAV SHADOW
-───────────────────────────────────────────── */
-function initNavShadow() {
-  const nav = document.querySelector('.nav');
-  if (!nav) return;
-
-  const onScroll = () => {
-    nav.style.boxShadow = window.scrollY > 10
-      ? '0 2px 16px rgba(22,17,16,0.07)'
-      : 'none';
-  };
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-}
-
-/* ─────────────────────────────────────────────
-   5. SMOOTH ANCHOR SCROLL (offset for sticky nav)
+   4. SMOOTH ANCHOR SCROLL (offset for sticky nav)
 ───────────────────────────────────────────── */
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(link => {
@@ -137,7 +115,7 @@ function initSmoothScroll() {
       e.preventDefault();
 
       const navHeight = document.querySelector('.nav')?.offsetHeight || 0;
-      const top = target.getBoundingClientRect().top + window.scrollY - navHeight;
+      const top = target.getBoundingClientRect().top + window.scrollY - navHeight - 12;
 
       window.scrollTo({ top, behavior: 'smooth' });
     });
@@ -145,56 +123,14 @@ function initSmoothScroll() {
 }
 
 /* ─────────────────────────────────────────────
-   6. POLAROID HOVER — lift effect
-───────────────────────────────────────────── */
-function initPolaroidTilt() {
-  document.querySelectorAll('.polaroid').forEach(pol => {
-    const baseTransform = pol.style.transform || getComputedStyle(pol).transform;
-
-    pol.addEventListener('mouseenter', () => {
-      pol.style.transform = 'rotate(0deg) scale(1.04)';
-    });
-    pol.addEventListener('mouseleave', () => {
-      pol.style.transform = '';
-    });
-  });
-}
-
-/* ─────────────────────────────────────────────
-   7. CURSOR GLOW (subtle accent blob on hero right)
-───────────────────────────────────────────── */
-function initCursorGlow() {
-  const panel = document.querySelector('.hero__right');
-  if (!panel) return;
-
-  const blob = document.createElement('div');
-  blob.style.cssText = `
-    position: absolute; width: 320px; height: 320px;
-    border-radius: 50%; pointer-events: none; z-index: 1;
-    background: radial-gradient(circle, rgba(255,71,87,0.14) 0%, transparent 70%);
-    transform: translate(-50%,-50%);
-    transition: left 0.18s ease, top 0.18s ease;
-  `;
-  panel.appendChild(blob);
-
-  panel.addEventListener('mousemove', e => {
-    const rect = panel.getBoundingClientRect();
-    blob.style.left = (e.clientX - rect.left) + 'px';
-    blob.style.top  = (e.clientY - rect.top)  + 'px';
-  });
-}
-
-/* ─────────────────────────────────────────────
-   8. THEME TOGGLE
+   5. THEME TOGGLE
 ───────────────────────────────────────────── */
 function initThemeToggle() {
   const btn  = document.getElementById('themeToggle');
   const icon = document.getElementById('themeIcon');
   if (!btn || !icon) return;
 
-  const SUN = `
-    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" fill="var(--text)"/>
-  `;
+  const SUN = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" fill="var(--text)"/>`;
   const MOON = `
     <circle cx="12" cy="12" r="4.5" fill="var(--yellow)"/>
     <g stroke="var(--yellow)" stroke-width="1.8" stroke-linecap="round">
@@ -211,10 +147,9 @@ function initThemeToggle() {
 
   function render(theme) {
     icon.innerHTML = theme === 'light' ? SUN : MOON;
-    // restart the spin-in animation on every switch
     icon.style.animation = 'none';
     // eslint-disable-next-line no-unused-expressions
-    icon.offsetHeight; // force reflow
+    icon.offsetHeight; // force reflow to restart the spin-in
     icon.style.animation = '';
     btn.setAttribute('aria-label', theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
   }
@@ -231,13 +166,13 @@ function initThemeToggle() {
 }
 
 /* ─────────────────────────────────────────────
-   9. SERVICE TABS
+   6. SERVICE TABS
 ───────────────────────────────────────────── */
 function initServiceTabs() {
   const wrap = document.getElementById('serviceTabs');
   if (!wrap) return;
 
-  const pills   = wrap.querySelectorAll('.tab-pill');
+  const pills   = wrap.querySelectorAll('.chip');
   const content = document.getElementById('serviceTabPanelContent');
   const numEl   = document.getElementById('serviceTabNum');
   const nameEl  = document.getElementById('serviceTabName');
@@ -255,7 +190,6 @@ function initServiceTabs() {
       nameEl.textContent = pill.textContent.trim();
       descEl.textContent = pill.dataset.desc;
 
-      // restart the fade-in on the panel content
       content.style.animation = 'none';
       // eslint-disable-next-line no-unused-expressions
       content.offsetHeight;
@@ -265,53 +199,38 @@ function initServiceTabs() {
 }
 
 /* ─────────────────────────────────────────────
-   10. FOOTER ANIMATION — quill drive
-   Replays every time the strip scrolls into view,
-   not just the first time.
+   7. WRITE & PONDER SCENE
+   The animation itself is pure CSS (always looping);
+   this just pauses it while off-screen so it isn't
+   animating somewhere nobody can see.
 ───────────────────────────────────────────── */
-function initFooterAnimation() {
-  const strip = document.getElementById('quillStrip');
-  const quill = document.getElementById('quillIcon');
-  const trail = document.getElementById('inkTrail');
-  if (!strip || !quill || !trail) return;
+function initWriteScene() {
+  const strip = document.getElementById('writeStrip');
+  if (!strip) return;
 
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduceMotion) return;
+  const animatedEls = strip.querySelectorAll('.wp-pen, .wp-mark1, .wp-mark2, .wp-mark3, .wp-dots');
+  if (!animatedEls.length) return;
 
   const io = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      // Toggling the class off then on (via reflow) each time it re-enters
-      // view restarts the CSS animation fresh — so the quill drives across
-      // every time you reach the footer, not just once per page load.
-      if (entry.isIntersecting) {
-        quill.classList.remove('is-driving');
-        trail.classList.remove('is-driving');
-        // eslint-disable-next-line no-unused-expressions
-        quill.offsetHeight;
-        quill.classList.add('is-driving');
-        trail.classList.add('is-driving');
-      } else {
-        quill.classList.remove('is-driving');
-        trail.classList.remove('is-driving');
-      }
+      animatedEls.forEach(el => {
+        el.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
+      });
     });
-  }, { threshold: 0.3 });
+  }, { threshold: 0.1 });
 
   io.observe(strip);
 }
 
 /* ─────────────────────────────────────────────
-   11. INIT ALL
+   8. INIT ALL
 ───────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initLightbox();
   initReveal();
-  initNavShadow();
   initSmoothScroll();
-  initPolaroidTilt();
-  initCursorGlow();
   initThemeToggle();
   initServiceTabs();
-  initFooterAnimation();
+  initWriteScene();
 });

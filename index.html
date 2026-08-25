@@ -9,15 +9,12 @@
   <meta property="og:type"        content="website"/>
   <title>Omoyeni — Writer & Storyteller</title>
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Jost:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Jost:wght@300;400;500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
 
-  <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css"/>
 
-  <!-- No-flash theme init: reads saved preference before first paint -->
   <script>
     (function () {
       try {
@@ -35,22 +32,18 @@
 <!-- ════════════════════════════════════════
      NAV
 ════════════════════════════════════════ -->
-<header>
-  <nav class="nav" aria-label="Main navigation">
+<nav class="nav" aria-label="Main navigation">
+  <div class="nav__inner">
     <a class="nav__logo" href="#">Sisi</a>
-
     <div class="nav__right">
-      <!-- Desktop pills -->
       <ul class="nav__pills" role="list">
-        <li><a href="#work">Work</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact" class="pill--cta">Let's work</a></li>
+        <li><a class="chip" href="#work">Work</a></li>
+        <li><a class="chip" href="#services">Services</a></li>
+        <li><a class="chip" href="#about">About</a></li>
+        <li><a class="chip chip--cta" href="#contact">Let's work</a></li>
       </ul>
-
-      <!-- Theme toggle -->
       <button class="theme-toggle" id="themeToggle" aria-label="Switch to light mode">
-        <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" class="theme-icon-enter" aria-hidden="true">
           <circle cx="12" cy="12" r="4.5" fill="var(--yellow)"/>
           <g stroke="var(--yellow)" stroke-width="1.8" stroke-linecap="round">
             <line x1="12" y1="1.5" x2="12" y2="4"/>
@@ -64,677 +57,412 @@
           </g>
         </svg>
       </button>
-
-      <!-- Hamburger -->
-      <button
-        class="nav__toggle"
-        id="navToggle"
-        aria-label="Open menu"
-        aria-expanded="false"
-        aria-controls="mobileNav"
-      >
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
         <span></span><span></span><span></span>
       </button>
     </div>
-  </nav>
-
-  <!-- Mobile overlay -->
+  </div>
   <ul class="nav__mobile" id="mobileNav" role="list" aria-label="Mobile navigation">
     <li><a href="#work">Work</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-</header>
-<div style="height: 72px;" aria-hidden="true"></div>
+</nav>
 
 <!-- ════════════════════════════════════════
-     HERO
+     MASTHEAD
 ════════════════════════════════════════ -->
-<section class="hero" aria-label="Introduction">
+<header class="masthead">
+  <div class="masthead__inner">
+    <div class="masthead__top">
+      <span class="status-tag">WRITER &amp; STORYTELLER · LAGOS, NIGERIA</span>
+      <div class="masthead__top-right">
+        <span class="vol-badge">EST. 2025</span>
+      </div>
+    </div>
 
-  <div class="hero__center">
-    <p class="hero__eyebrow">Writer &amp; Storyteller · Lagos, Nigeria</p>
+    <p class="masthead__kicker">SISI&rsquo;S</p>
+    <h1 class="masthead__name">Portfolio.</h1>
 
-    <h1 class="hero__name">Sisi.</h1>
-
-    <p class="hero__bio">
-      A writer with a strategic eye and a designer's awareness of audience.
-      I create content — essays, newsletters, and stories — that moves people
-      to act, to feel, to reconsider.
+    <p class="masthead__bio">
+      A writer with a strategic eye and a designer&rsquo;s awareness of
+      audience. I create content — essays, newsletters, and stories —
+      that moves people to act, to feel, to reconsider.
     </p>
 
-    <div class="hero__cta-row">
-      <a class="btn btn--primary" href="#work">Read my work →</a>
-      <a class="btn btn--outline" href="#contact">Work with me</a>
+    <div class="masthead__cta-row">
+      <a class="btn btn--primary" href="#work">Read My Work →</a>
+      <a class="btn btn--outline" href="#contact">Work With Me</a>
     </div>
   </div>
 
-  <!-- Stickers orbit around center content -->
-  <div class="hero__stickers" aria-hidden="true">
-
-    <!-- Quill pen — top left -->
-    <div class="sticker sticker--quill">
-      <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="40" cy="40" rx="38" ry="38" fill="white" fill-opacity="0.82"/>
-        <path d="M55 18 C64 12 70 20 63 29 L40 60 L31 55 Z" fill="#FF4757" opacity="0.9"/>
-        <path d="M40 60 L31 55 L33 64 Z" fill="#8F1F2B"/>
-        <path d="M37 62 L33 74" stroke="#14110D" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M55 18 C64 12 70 20 63 29" stroke="rgba(255,255,255,0.55)" stroke-width="1.5"/>
-      </svg>
+  <div class="marquee-bar" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Fiction</span><span>Essays</span><span>Copywriting</span>
+      <span>Storytelling</span><span>Children's Books</span><span>Brand Voice</span>
+      <span>Newsletters</span><span>Cultural Writing</span><span>Technical Writing</span>
+      <span>Fiction</span><span>Essays</span><span>Copywriting</span>
+      <span>Storytelling</span><span>Children's Books</span><span>Brand Voice</span>
+      <span>Newsletters</span><span>Cultural Writing</span><span>Technical Writing</span>
     </div>
-
-    <!-- Open book — top right -->
-    <div class="sticker sticker--book">
-      <svg width="92" height="72" viewBox="0 0 92 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M6 10 C6 8 8 6 10 6 L42 6 C44 6 46 8 46 10 L46 64 C46 64 28 60 6 64 Z" fill="#FFE9B8"/>
-        <path d="M86 10 C86 8 84 6 82 6 L50 6 C48 6 46 8 46 10 L46 64 C46 64 64 60 86 64 Z" fill="#FFF3D6"/>
-        <line x1="46" y1="6" x2="46" y2="64" stroke="#FF4757" stroke-width="1.5"/>
-        <rect x="2" y="4" width="88" height="64" rx="4" fill="none" stroke="rgba(255,71,87,0.2)" stroke-width="1"/>
-        <line x1="14" y1="22" x2="38" y2="22" stroke="#FF8A94" stroke-width="1.2" opacity="0.6"/>
-        <line x1="14" y1="29" x2="38" y2="29" stroke="#FF8A94" stroke-width="1.2" opacity="0.6"/>
-        <line x1="14" y1="36" x2="32" y2="36" stroke="#FF8A94" stroke-width="1.2" opacity="0.6"/>
-        <line x1="54" y1="22" x2="78" y2="22" stroke="#FF8A94" stroke-width="1.2" opacity="0.6"/>
-        <line x1="54" y1="29" x2="78" y2="29" stroke="#FF8A94" stroke-width="1.2" opacity="0.6"/>
-        <line x1="54" y1="36" x2="70" y2="36" stroke="#FF8A94" stroke-width="1.2" opacity="0.6"/>
-      </svg>
-    </div>
-
-    <!-- Wax seal — left mid -->
-    <div class="sticker sticker--seal">
-      <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="36" cy="36" r="34" fill="#FF4757"/>
-        <circle cx="36" cy="36" r="28" fill="#C22836" opacity="0.55"/>
-        <circle cx="36" cy="36" r="22" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/>
-        <text x="36" y="42" text-anchor="middle" font-family="Georgia, serif" font-size="18" font-weight="700" fill="rgba(255,255,255,0.92)" font-style="italic">S</text>
-        <circle cx="36" cy="36" r="33" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.5" stroke-dasharray="3 3"/>
-      </svg>
-    </div>
-
-    <!-- Ink bottle — right mid -->
-    <div class="sticker sticker--ink">
-      <svg width="64" height="84" viewBox="0 0 64 84" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="22" y="2" width="20" height="10" rx="3" fill="#14110D"/>
-        <rect x="24" y="8" width="16" height="7" rx="2" fill="#211C15"/>
-        <rect x="26" y="14" width="12" height="12" rx="2" fill="#211C15"/>
-        <path d="M12 28 L52 28 L56 74 Q56 80 50 80 L14 80 Q8 80 8 74 Z" fill="#14110D"/>
-        <path d="M12 28 L52 28 L56 74 Q56 80 50 80 L14 80 Q8 80 8 74 Z" fill="#FF4757" opacity="0.22"/>
-        <ellipse cx="32" cy="62" rx="15" ry="11" fill="#FF4757" opacity="0.32"/>
-        <path d="M20 46 Q32 42 44 46" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" fill="none"/>
-      </svg>
-    </div>
-
-    <!-- Stack of papers — bottom left -->
-    <div class="sticker sticker--papers">
-      <svg width="72" height="82" viewBox="0 0 72 82" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="8" y="18" width="56" height="66" rx="2" fill="#E8DCC0" transform="rotate(-5 8 18)"/>
-        <rect x="5" y="10" width="56" height="66" rx="2" fill="#EDE3CC" transform="rotate(-2 5 10)"/>
-        <rect x="2" y="2" width="56" height="68" rx="2" fill="white" stroke="#E8DCC0" stroke-width="1"/>
-        <line x1="12" y1="20" x2="48" y2="20" stroke="#E8DCC0" stroke-width="1.5"/>
-        <line x1="12" y1="29" x2="48" y2="29" stroke="#E8DCC0" stroke-width="1.5"/>
-        <line x1="12" y1="38" x2="40" y2="38" stroke="#E8DCC0" stroke-width="1.5"/>
-        <line x1="12" y1="47" x2="44" y2="47" stroke="#E8DCC0" stroke-width="1.5"/>
-      </svg>
-    </div>
-
-    <!-- Ribbon bookmark — bottom right -->
-    <div class="sticker sticker--bookmark">
-      <svg width="38" height="88" viewBox="0 0 38 88" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M2 0 L36 0 L36 76 L19 66 L2 76 Z" fill="#FF4757"/>
-        <path d="M2 0 L36 0 L36 76 L19 66 L2 76 Z" fill="white" fill-opacity="0.1"/>
-        <line x1="11" y1="16" x2="27" y2="16" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
-        <line x1="11" y1="24" x2="27" y2="24" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
-        <line x1="11" y1="32" x2="22" y2="32" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
-      </svg>
-    </div>
-
-    <!-- Folded envelope — top center-right -->
-    <div class="sticker sticker--envelope">
-      <svg width="86" height="62" viewBox="0 0 86 62" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="2" y="2" width="82" height="58" rx="4" fill="white" fill-opacity="0.88"/>
-        <rect x="2" y="2" width="82" height="58" rx="4" fill="#FFF3D6" fill-opacity="0.6"/>
-        <path d="M2 2 L43 36 L84 2" stroke="#FF8A94" stroke-width="1.5" fill="none"/>
-        <path d="M2 60 L30 32" stroke="#FF8A94" stroke-width="1" opacity="0.45"/>
-        <path d="M84 60 L56 32" stroke="#FF8A94" stroke-width="1" opacity="0.45"/>
-        <rect x="2" y="2" width="82" height="58" rx="4" fill="none" stroke="#E8DCC0" stroke-width="1.5"/>
-        <circle cx="43" cy="44" r="5" fill="#FF4757" opacity="0.7"/>
-      </svg>
-    </div>
-
-    <!-- Pencil — bottom center-left -->
-    <div class="sticker sticker--pencil">
-      <svg width="20" height="96" viewBox="0 0 20 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="1" y="8" width="18" height="72" fill="#FF4757"/>
-        <rect x="1" y="8" width="18" height="72" fill="white" fill-opacity="0.14"/>
-        <polygon points="1,80 19,80 10,96" fill="#FFE9B8"/>
-        <polygon points="5,88 15,88 10,96" fill="#14110D"/>
-        <rect x="1" y="2" width="18" height="10" rx="2" fill="#C22836"/>
-        <rect x="3" y="24" width="14" height="2" fill="rgba(255,255,255,0.2)"/>
-        <rect x="3" y="36" width="14" height="2" fill="rgba(255,255,255,0.2)"/>
-        <rect x="3" y="48" width="14" height="2" fill="rgba(255,255,255,0.2)"/>
-      </svg>
-    </div>
-
-    <!-- Gold star — lower left -->
-    <div class="sticker sticker--star">
-      <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M29 4 L33.5 22 L52 22 L37.5 33.5 L43 51 L29 41 L15 51 L20.5 33.5 L6 22 L24.5 22 Z" fill="#FF4757" opacity="0.85"/>
-        <path d="M29 10 L32 22 L44 22 L34 29 L37.5 41 L29 35 L20.5 41 L24 29 L14 22 L26 22 Z" fill="#FFF3D6" opacity="0.45"/>
-      </svg>
-    </div>
-
-    <!-- Paper clip — upper left area -->
-    <div class="sticker sticker--clip">
-      <svg width="28" height="46" viewBox="0 0 28 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="14" cy="11" rx="10" ry="9" fill="none" stroke="#FF4757" stroke-width="3"/>
-        <ellipse cx="14" cy="29" rx="10" ry="9" fill="none" stroke="#FF4757" stroke-width="3"/>
-      </svg>
-    </div>
-
   </div>
-</section>
+</header>
 
+<main class="body-stack">
 
-<!-- ════════════════════════════════════════
-     MARQUEE
-════════════════════════════════════════ -->
-<div class="marquee-bar" aria-hidden="true">
-  <div class="marquee__track">
-    <span>Fiction</span><span>Essays</span><span>Copywriting</span>
-    <span>Storytelling</span><span>Children's Books</span><span>Brand Narrative</span>
-    <span>Newsletters</span><span>Bilingual Writing</span><span>Cultural Commentary</span>
-    <span>Technical Writing</span>
-    <!-- duplicate for seamless loop -->
-    <span>Fiction</span><span>Essays</span><span>Copywriting</span>
-    <span>Storytelling</span><span>Children's Books</span><span>Brand Narrative</span>
-    <span>Newsletters</span><span>Bilingual Writing</span><span>Cultural Commentary</span>
-    <span>Technical Writing</span>
-  </div>
-</div>
+  <!-- ════════════════════════════════════════
+       WORK
+  ════════════════════════════════════════ -->
+  <section id="work">
+    <div class="section-heading">
+      <h2 class="section-heading__title">The Writing</h2>
+      <span class="section-heading__meta">Selected work</span>
+    </div>
 
+    <div class="featured-grid">
 
-<!-- ════════════════════════════════════════
-     WORK
-════════════════════════════════════════ -->
-<section id="work" class="section section--white">
-  <div class="section__header">
-    <span class="section__label">Selected Work</span>
-    <h2 class="section__title">The Writing</h2>
-    <div class="section__line"></div>
-  </div>
-
-  <!-- Featured row -->
-  <div class="featured-row">
-
-    <!-- Children's book -->
-    <div
-      class="book-card reveal"
-      id="bookCardTrigger"
-      role="button"
-      tabindex="0"
-      aria-label="Open Goodnight From Home preview"
-    >
-      <div class="book-card__cover">
-        <div class="cover__stars">✦ ✦ ✦</div>
-        <div class="cover__title">Goodnight<br>From Home</div>
-        <div class="cover__stars">✦ ✦ ✦</div>
-        <div class="cover__sub">by Omosisi</div>
-      </div>
-      <div class="book-card__body">
-        <span class="badge badge--pink" style="margin-bottom:1rem;">Featured · Children's Book</span>
-        <h3 class="book-card__title">Goodnight From Home</h3>
-        <p class="book-card__excerpt">
+      <!-- Children's book -->
+      <div class="card card--hover reveal" id="bookCardTrigger" role="button" tabindex="0" aria-label="Open Goodnight From Home preview" style="cursor:pointer;">
+        <span class="card__tab" style="background:var(--coral);"></span>
+        <div class="book-cover">
+          <div class="book-cover__stars">✦ ✦ ✦</div>
+          <div class="book-cover__title">Goodnight<br>From Home</div>
+          <div class="book-cover__sub">by Omosisi</div>
+        </div>
+        <span class="card__badge" style="background:var(--coral); display:inline-block; margin-bottom:0.75rem;">FEATURED · CHILDREN'S BOOK</span>
+        <h3 class="card__title">Goodnight From Home</h3>
+        <p class="card__body" style="margin-top:0.5rem;">
           A bilingual bedtime story woven from love, memory, and the warmth of a Nigerian home
           at night. Grandma's Yoruba lullaby. Mama's prayers. Aunty Sisi writing stories by lamplight.
         </p>
-        <div class="book-card__tags">
-          <span class="book-card__tag">Fiction</span>
-          <span class="book-card__tag">Yoruba</span>
-          <span class="book-card__tag">Bilingual</span>
-          <span class="book-card__tag">Children's Lit</span>
-          <span class="book-card__tag">Illustrated</span>
+        <div class="card__tags">
+          <span class="card__tag">Fiction</span>
+          <span class="card__tag">Yoruba</span>
+          <span class="card__tag">Bilingual</span>
+          <span class="card__tag">Children's Lit</span>
+          <span class="card__tag">Illustrated</span>
         </div>
-        <div class="book-card__note">
-          <span class="book-card__note-mark">✦</span>
+        <div class="card__note">
+          <span class="card__note-mark">✦</span>
           <p>Written for my nephew — a love letter disguised as a bedtime story, carrying Grandma's
           Yoruba lullaby, Mama's whispered prayers, and Aunty Sisi's promise to write him stories,
           year to year.</p>
         </div>
-        <span class="book-card__peek">Peek inside</span>
+        <div class="card__footer">
+          <span class="card__meta">Full preview</span>
+          <span class="card__cta">PEEK INSIDE →</span>
+        </div>
       </div>
+
+      <!-- GATE Academy -->
+      <a class="card card--hover reveal" href="https://gate-academy.com/" target="_blank" rel="noopener noreferrer">
+        <span class="card__tab" style="background:var(--green);"></span>
+        <span class="card__badge" style="background:var(--green); display:inline-block; margin-bottom:0.75rem;">FEATURED · WEBSITE COPY</span>
+        <h3 class="card__title">GATE Academy — Unlock Your Child's Potential</h3>
+        <p class="card__body" style="margin-top:0.5rem;">
+          Full website copy for an ed-tech tutoring platform serving students across Nigeria, the UK,
+          and North America. Every word crafted to build trust with parents and drive action —
+          warmth, clarity, and authority in equal measure.
+        </p>
+        <div class="meta-grid">
+          <div class="meta-grid__cell">
+            <div class="meta-grid__label">Type</div>
+            <div class="meta-grid__value">Website Copywriting</div>
+          </div>
+          <div class="meta-grid__cell">
+            <div class="meta-grid__label">Client</div>
+            <div class="meta-grid__value">GATE Academy</div>
+          </div>
+          <div class="meta-grid__cell">
+            <div class="meta-grid__label">Scope</div>
+            <div class="meta-grid__value">Homepage, Services, FAQs</div>
+          </div>
+          <div class="meta-grid__cell">
+            <div class="meta-grid__label">Audience</div>
+            <div class="meta-grid__value">Parents &amp; students, Lagos to London</div>
+          </div>
+        </div>
+        <div class="card__footer">
+          <span class="card__meta">gate-academy.com</span>
+          <span class="card__cta">VISIT SITE →</span>
+        </div>
+      </a>
     </div>
 
-    <!-- GATE Academy -->
-    <a class="gate-card reveal" href="https://gate-academy.com/" target="_blank" rel="noopener noreferrer">
-      <div class="gate-card__header">
-        <span class="badge badge--dark" style="margin-bottom:1.25rem;">Featured · Website Copy</span>
-        <h3 class="gate-card__title">GATE Academy — Unlock Your Child's Potential</h3>
-      </div>
-      <p class="gate-card__excerpt">
-        Full website copy for an ed-tech tutoring platform serving students across Nigeria, the UK,
-        and North America. Every word crafted to build trust with parents and drive action —
-        warmth, clarity, and authority in equal measure.
-      </p>
-      <div class="gate-card__meta">
-        <div class="meta-cell">
-          <div class="meta-cell__label">Type</div>
-          <div class="meta-cell__value">Website Copywriting</div>
-        </div>
-        <div class="meta-cell">
-          <div class="meta-cell__label">Client</div>
-          <div class="meta-cell__value">GATE Academy</div>
-        </div>
-        <div class="meta-cell">
-          <div class="meta-cell__label">Scope</div>
-          <div class="meta-cell__value">Homepage, Services, FAQs</div>
-        </div>
-        <div class="meta-cell">
-          <div class="meta-cell__label">Audience</div>
-          <div class="meta-cell__value">Parents &amp; students, Lagos to London</div>
-        </div>
-      </div>
-      <div class="gate-card__footer">
-        <span class="gate-card__link">Visit the site →</span>
-      </div>
-    </a>
-  </div>
+    <div class="work-grid">
+      <a class="card card--hover work-card reveal" href="https://substack.com/home/post/p-177276151" target="_blank" rel="noopener noreferrer">
+        <span class="card__tab" style="background:var(--violet);"></span>
+        <p class="card__meta" style="margin-bottom:0.6rem;">ESSAY / FICTION</p>
+        <h3 class="card__title" style="font-size:1.1rem;">You Made a Fool of Death</h3>
+        <p class="card__body" style="margin-top:0.5rem;">A meditation on mortality, grief, and the audacity of living — told with the intimacy only storytelling can hold.</p>
+        <div class="card__footer"><span></span><span class="card__cta">READ ↗</span></div>
+      </a>
 
-  <!-- Substack grid -->
-  <div class="work-grid">
+      <a class="card card--hover work-card reveal" href="https://substack.com/home/post/p-159551200" target="_blank" rel="noopener noreferrer">
+        <span class="card__tab" style="background:var(--coral);"></span>
+        <p class="card__meta" style="margin-bottom:0.6rem;">CULTURAL COMMENTARY</p>
+        <h3 class="card__title" style="font-size:1.1rem;">I Know Victoria's Secret's Secret</h3>
+        <p class="card__body" style="margin-top:0.5rem;">Pulling back the curtain on a billion-dollar brand — where image, identity, and illusion collide.</p>
+        <div class="card__footer"><span></span><span class="card__cta">READ ↗</span></div>
+      </a>
 
-    <a class="work-card reveal" href="https://substack.com/home/post/p-177276151" target="_blank" rel="noopener noreferrer">
-      <p class="work-card__type">Essay / Fiction</p>
-      <h3 class="work-card__title">You Made a Fool of Death</h3>
-      <div class="work-card__divider"></div>
-      <p class="work-card__excerpt">A meditation on mortality, grief, and the audacity of living — told with the intimacy only storytelling can hold.</p>
-      <span class="work-card__arrow">↗</span>
-    </a>
+      <a class="card card--hover work-card reveal" href="https://substack.com/home/post/p-159551849" target="_blank" rel="noopener noreferrer">
+        <span class="card__tab" style="background:var(--yellow);"></span>
+        <p class="card__meta" style="margin-bottom:0.6rem;">PROFILE / ESSAY</p>
+        <h3 class="card__title" style="font-size:1.1rem;">The Legend That Is Ebenezer Obey</h3>
+        <p class="card__body" style="margin-top:0.5rem;">A tribute to a musical titan — weaving memory, culture, and legacy into a portrait of jùjú royalty.</p>
+        <div class="card__footer"><span></span><span class="card__cta">READ ↗</span></div>
+      </a>
 
-    <a class="work-card reveal" href="https://substack.com/home/post/p-159551200" target="_blank" rel="noopener noreferrer">
-      <p class="work-card__type">Cultural Commentary</p>
-      <h3 class="work-card__title">I Know Victoria's Secret's Secret</h3>
-      <div class="work-card__divider"></div>
-      <p class="work-card__excerpt">Pulling back the curtain on a billion-dollar brand — where image, identity, and illusion collide.</p>
-      <span class="work-card__arrow">↗</span>
-    </a>
+      <a class="card card--hover work-card reveal" href="https://substack.com/home/post/p-159551646" target="_blank" rel="noopener noreferrer">
+        <span class="card__tab" style="background:var(--green);"></span>
+        <p class="card__meta" style="margin-bottom:0.6rem;">FICTION</p>
+        <h3 class="card__title" style="font-size:1.1rem;">One of the Many Men</h3>
+        <p class="card__body" style="margin-top:0.5rem;">A story about the men who move through our lives like weather — unremarkable and, yet, unforgettable.</p>
+        <div class="card__footer"><span></span><span class="card__cta">READ ↗</span></div>
+      </a>
 
-    <a class="work-card reveal" href="https://substack.com/home/post/p-159551849" target="_blank" rel="noopener noreferrer">
-      <p class="work-card__type">Profile / Essay</p>
-      <h3 class="work-card__title">The Legend That Is Ebenezer Obey</h3>
-      <div class="work-card__divider"></div>
-      <p class="work-card__excerpt">A tribute to a musical titan — weaving memory, culture, and legacy into a portrait of jùjú royalty.</p>
-      <span class="work-card__arrow">↗</span>
-    </a>
+      <a class="card card--hover work-card reveal" href="https://substack.com/home/post/p-158358231" target="_blank" rel="noopener noreferrer">
+        <span class="card__tab" style="background:var(--violet);"></span>
+        <p class="card__meta" style="margin-bottom:0.6rem;">NARRATIVE ESSAY</p>
+        <h3 class="card__title" style="font-size:1.1rem;">Baba Kefi</h3>
+        <p class="card__body" style="margin-top:0.5rem;">A deeply personal piece navigating heritage, joy, and the places that shape who we become.</p>
+        <div class="card__footer"><span></span><span class="card__cta">READ ↗</span></div>
+      </a>
 
-    <a class="work-card reveal" href="https://substack.com/home/post/p-159551646" target="_blank" rel="noopener noreferrer">
-      <p class="work-card__type">Fiction</p>
-      <h3 class="work-card__title">One of the Many Men</h3>
-      <div class="work-card__divider"></div>
-      <p class="work-card__excerpt">A story about the men who move through our lives like weather — unremarkable and, yet, unforgettable.</p>
-      <span class="work-card__arrow">↗</span>
-    </a>
+      <a class="card card--hover work-card reveal" href="https://substack.com/home/post/p-159552693" target="_blank" rel="noopener noreferrer">
+        <span class="card__tab" style="background:var(--coral);"></span>
+        <p class="card__meta" style="margin-bottom:0.6rem;">SCIENCE &amp; IDEAS</p>
+        <h3 class="card__title" style="font-size:1.1rem;">The Theory of Evolution</h3>
+        <p class="card__body" style="margin-top:0.5rem;">Darwin meets contemporary life — reframing evolution not as history, but as a lens for the now.</p>
+        <div class="card__footer"><span></span><span class="card__cta">READ ↗</span></div>
+      </a>
+    </div>
+  </section>
 
-    <a class="work-card reveal" href="https://substack.com/home/post/p-158358231" target="_blank" rel="noopener noreferrer">
-      <p class="work-card__type">Narrative Essay</p>
-      <h3 class="work-card__title">Baba Kefi</h3>
-      <div class="work-card__divider"></div>
-      <p class="work-card__excerpt">A deeply personal piece navigating heritage, joy, and the places that shape who we become.</p>
-      <span class="work-card__arrow">↗</span>
-    </a>
-
-    <a class="work-card reveal" href="https://substack.com/home/post/p-159552693" target="_blank" rel="noopener noreferrer">
-      <p class="work-card__type">Science &amp; Ideas</p>
-      <h3 class="work-card__title">The Theory of Evolution</h3>
-      <div class="work-card__divider"></div>
-      <p class="work-card__excerpt">Darwin meets contemporary life — reframing evolution not as history, but as a lens for the now.</p>
-      <span class="work-card__arrow">↗</span>
-    </a>
-
-  </div>
-</section>
-
-
-<!-- ════════════════════════════════════════
-     SERVICES
-════════════════════════════════════════ -->
-<section id="services" class="section section--blush">
-  <div class="section__header">
-    <span class="section__label">What I Do</span>
-    <h2 class="section__title">How I Can Help</h2>
-    <div class="section__line"></div>
-  </div>
-
-  <div class="services-tabs reveal">
-    <div class="tabs__pills" role="tablist" aria-label="Services" id="serviceTabs">
-      <button class="tab-pill is-active" type="button" role="tab" aria-selected="true" data-num="01"
-        data-desc="Website copy, landing pages, and campaign writing that sounds like a person, not a press release. I write for brands that want to be heard, trusted, and remembered.">
-        Brand Copywriting
-      </button>
-      <button class="tab-pill" type="button" role="tab" aria-selected="false" data-num="02"
-        data-desc="Long-form essays, opinion pieces, and cultural commentary that hold a reader from the first sentence. Identity, society, creativity — everything in between.">
-        Essays &amp; Cultural Writing
-      </button>
-      <button class="tab-pill" type="button" role="tab" aria-selected="false" data-num="03"
-        data-desc="Regular newsletters that get opened. I help brands and individuals build a consistent voice — turning subscribers into a loyal, returning audience.">
-        Newsletters &amp; Content Strategy
-      </button>
-      <button class="tab-pill" type="button" role="tab" aria-selected="false" data-num="04"
-        data-desc="Short stories, narrative writing, and creative prose that does what good fiction always does — reveals something true through something invented.">
-        Fiction &amp; Storytelling
-      </button>
-      <button class="tab-pill" type="button" role="tab" aria-selected="false" data-num="05"
-        data-desc="Bilingual picture books and bedtime stories that carry culture, warmth, and the kind of magic that stays with a child long after the last page.">
-        Children's Books
-      </button>
-      <button class="tab-pill" type="button" role="tab" aria-selected="false" data-num="06"
-        data-desc="Documentation, guides, and explainers that make complex things clear — without making the reader feel talked down to. Clarity is a form of respect.">
-        Technical Writing
-      </button>
+  <!-- ════════════════════════════════════════
+       SERVICES
+  ════════════════════════════════════════ -->
+  <section id="services">
+    <div class="section-heading">
+      <h2 class="section-heading__title">How I Can Help</h2>
+      <span class="section-heading__meta">6 ways to work together</span>
     </div>
 
-    <div class="tabs__panel" id="serviceTabPanel">
-      <div class="tabs__panel-content" id="serviceTabPanelContent">
-        <div class="tabs__panel-top">
+    <div class="reveal">
+      <div class="tabs__pills" role="tablist" aria-label="Services" id="serviceTabs">
+        <button class="chip is-active" type="button" role="tab" aria-selected="true" data-num="01"
+          data-desc="Website copy, landing pages, and campaign writing that sounds like a person, not a press release. I write for brands that want to be heard, trusted, and remembered.">
+          Brand Copywriting
+        </button>
+        <button class="chip" type="button" role="tab" aria-selected="false" data-num="02"
+          data-desc="Long-form essays, opinion pieces, and cultural commentary that hold a reader from the first sentence. Identity, society, creativity — everything in between.">
+          Essays &amp; Cultural Writing
+        </button>
+        <button class="chip" type="button" role="tab" aria-selected="false" data-num="03"
+          data-desc="Regular newsletters that get opened. I help brands and individuals build a consistent voice — turning subscribers into a loyal, returning audience.">
+          Newsletters &amp; Content Strategy
+        </button>
+        <button class="chip" type="button" role="tab" aria-selected="false" data-num="04"
+          data-desc="Short stories, narrative writing, and creative prose that does what good fiction always does — reveals something true through something invented.">
+          Fiction &amp; Storytelling
+        </button>
+        <button class="chip" type="button" role="tab" aria-selected="false" data-num="05"
+          data-desc="Bilingual picture books and bedtime stories that carry culture, warmth, and the kind of magic that stays with a child long after the last page.">
+          Children's Books
+        </button>
+        <button class="chip" type="button" role="tab" aria-selected="false" data-num="06"
+          data-desc="Documentation, guides, and explainers that make complex things clear — without making the reader feel talked down to. Clarity is a form of respect.">
+          Technical Writing
+        </button>
+      </div>
+
+      <div class="card" id="serviceTabPanel">
+        <div class="tabs__panel-content" id="serviceTabPanelContent">
           <span class="tabs__panel-num" id="serviceTabNum">01</span>
           <h3 class="tabs__panel-name" id="serviceTabName">Brand Copywriting</h3>
+          <p class="tabs__panel-desc" id="serviceTabDesc">Website copy, landing pages, and campaign writing that sounds like a person, not a press release. I write for brands that want to be heard, trusted, and remembered.</p>
         </div>
-        <p class="tabs__panel-desc" id="serviceTabDesc">Website copy, landing pages, and campaign writing that sounds like a person, not a press release. I write for brands that want to be heard, trusted, and remembered.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
-<!-- ════════════════════════════════════════
-     ABOUT
-════════════════════════════════════════ -->
-<section id="about" class="section section--white">
-  <div class="section__header">
-    <span class="section__label">The Writer</span>
-    <h2 class="section__title">About Sisi</h2>
-    <div class="section__line"></div>
-  </div>
-
-  <div class="about-layout">
-
-    <!-- Text column -->
-    <div class="about__text">
-      <div class="about__initials reveal">S<span>.</span></div>
-
-      <div class="about__body">
-        <p class="reveal">I am a writer with a <strong>strategic eye</strong> and a designer's awareness of audience.
-        My work doesn't just inform — it moves people to act, to feel, to reconsider.</p>
-
-        <blockquote class="about__pull reveal">
-          "My work blends storytelling with structure, helping brands communicate with purpose and precision."
-        </blockquote>
-
-        <p class="reveal">Across fiction, children's books, brand copy, essays, and technical prose,
-        I bring the same commitment: <strong>clarity without sacrifice, creativity without chaos.</strong></p>
-
-        <p class="reveal">Whether it's a newsletter that gets opened, a landing page that converts,
-        a bedtime story that stays with a child, or an essay that stops you mid-scroll —
-        I write with intention, always.</p>
-      </div>
-
-      <div class="skill-chips reveal">
-        <span class="chip">Storytelling</span>
-        <span class="chip">Brand Voice</span>
-        <span class="chip">Essays</span>
-        <span class="chip">Newsletters</span>
-        <span class="chip">Copywriting</span>
-        <span class="chip">Children's Books</span>
-        <span class="chip">Cultural Writing</span>
-        <span class="chip">Technical Writing</span>
-      </div>
+  <!-- ════════════════════════════════════════
+       ABOUT
+  ════════════════════════════════════════ -->
+  <section id="about">
+    <div class="section-heading">
+      <h2 class="section-heading__title">About Sisi</h2>
+      <span class="section-heading__meta">The writer</span>
     </div>
 
-    <!-- Photo collage -->
-    <div class="about__collage" aria-label="Photos of Omoyeni">
+    <div class="about-layout">
+      <div class="about__text">
+        <div class="about__body">
+          <p class="reveal">I am a writer with a <strong>strategic eye</strong> and a designer's awareness of audience.
+          My work doesn't just inform — it moves people to act, to feel, to reconsider.</p>
 
-      <!-- Paper clip decorations -->
-      <div class="clip-deco clip-deco--a" aria-hidden="true">
-        <svg width="26" height="42" viewBox="0 0 26 42" fill="none">
-          <ellipse cx="13" cy="10" rx="9" ry="8" fill="none" stroke="#FFC53D" stroke-width="2.5"/>
-          <ellipse cx="13" cy="26" rx="9" ry="8" fill="none" stroke="#FFC53D" stroke-width="2.5"/>
-        </svg>
-      </div>
-      <div class="clip-deco clip-deco--b" aria-hidden="true">
-        <svg width="26" height="42" viewBox="0 0 26 42" fill="none">
-          <ellipse cx="13" cy="10" rx="9" ry="8" fill="none" stroke="#FF4757" stroke-width="2.5"/>
-          <ellipse cx="13" cy="26" rx="9" ry="8" fill="none" stroke="#FF4757" stroke-width="2.5"/>
-        </svg>
-      </div>
-      <div class="clip-deco clip-deco--c" aria-hidden="true">
-        <svg width="26" height="42" viewBox="0 0 26 42" fill="none">
-          <ellipse cx="13" cy="10" rx="9" ry="8" fill="none" stroke="#FFC53D" stroke-width="2.5"/>
-          <ellipse cx="13" cy="26" rx="9" ry="8" fill="none" stroke="#FFC53D" stroke-width="2.5"/>
-        </svg>
-      </div>
+          <blockquote class="about__pull reveal">
+            "My work blends storytelling with structure, helping brands communicate with purpose and precision."
+          </blockquote>
 
-      <!-- Mini stickers on collage -->
-      <div class="coll-sticker coll-sticker--1" aria-hidden="true">
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-          <circle cx="22" cy="22" r="20" fill="white" opacity="0.88"/>
-          <path d="M22 6 L25 16 L35 16 L27 22 L30 32 L22 26 L14 32 L17 22 L9 16 L19 16 Z" fill="#FFC53D" opacity="0.88"/>
-        </svg>
-      </div>
-      <div class="coll-sticker coll-sticker--2" aria-hidden="true">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <circle cx="20" cy="20" r="18" fill="#FFF3D6" opacity="0.92"/>
-          <path d="M27 13 C31 11 34 15 31 19 L20 33 L16 31 Z" fill="#FF4757" opacity="0.88"/>
-          <path d="M20 33 L16 31 L17 35 Z" fill="#8F1F2B"/>
-          <path d="M19 34 L17 42" stroke="#14110D" stroke-width="1.2" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div class="coll-sticker coll-sticker--3" aria-hidden="true">
-        <svg width="38" height="38" viewBox="0 0 38 38" fill="none">
-          <circle cx="19" cy="19" r="17" fill="white" opacity="0.9"/>
-          <circle cx="19" cy="19" r="14" fill="#FF4757"/>
-          <circle cx="19" cy="19" r="10" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-          <text x="19" y="24" text-anchor="middle" font-family="Georgia,serif" font-size="12" font-weight="700" fill="rgba(255,255,255,0.92)" font-style="italic">S</text>
-        </svg>
+          <p class="reveal">Across fiction, children's books, brand copy, essays, and technical prose,
+          I bring the same commitment: <strong>clarity without sacrifice, creativity without chaos.</strong></p>
+
+          <p class="reveal">Whether it's a newsletter that gets opened, a landing page that converts,
+          a bedtime story that stays with a child, or an essay that stops you mid-scroll —
+          I write with intention, always.</p>
+        </div>
+
+        <div class="skill-chips reveal">
+          <span class="skill-chip">Storytelling</span>
+          <span class="skill-chip">Brand Voice</span>
+          <span class="skill-chip">Essays</span>
+          <span class="skill-chip">Newsletters</span>
+          <span class="skill-chip">Copywriting</span>
+          <span class="skill-chip">Children's Books</span>
+          <span class="skill-chip">Cultural Writing</span>
+          <span class="skill-chip">Technical Writing</span>
+        </div>
       </div>
 
-      <!-- Polaroid photos -->
       <!--
         ══════════════════════════════════════════════
         HOW TO ADD OMOYENI'S PHOTOS:
 
-        Replace <div class="polaroid__placeholder"> with:
+        Replace <p class="photo-card__placeholder"> with:
         <img src="assets/images/photo-1.jpg" alt="Omoyeni">
 
         Make sure the image is in the assets/images/ folder
         and named correctly. Supported formats: jpg, webp, png
         ══════════════════════════════════════════════
       -->
-      <div class="polaroid polaroid--a reveal">
-        <div class="polaroid__img">
-          <p class="polaroid__placeholder">Add Omoyeni's<br>photo here</p>
+      <div class="photo-grid reveal" aria-label="Photos of Omoyeni">
+        <div class="photo-card">
+          <div class="photo-card__img"><p class="photo-card__placeholder">Add Omoyeni's<br>photo here</p></div>
         </div>
-        <p class="polaroid__caption">Sisi · Writer</p>
-      </div>
-
-      <div class="polaroid polaroid--b reveal">
-        <div class="polaroid__img">
-          <p class="polaroid__placeholder">Add photo<br>here</p>
+        <div class="photo-card">
+          <div class="photo-card__img"><p class="photo-card__placeholder">Add photo<br>here</p></div>
         </div>
-        <p class="polaroid__caption">Lagos, 2024</p>
-      </div>
-
-      <div class="polaroid polaroid--c reveal">
-        <div class="polaroid__img">
-          <p class="polaroid__placeholder">Add photo<br>here</p>
+        <div class="photo-card">
+          <div class="photo-card__img"><p class="photo-card__placeholder">Add photo<br>here</p></div>
         </div>
-        <p class="polaroid__caption">At work ✦</p>
-      </div>
-
-      <div class="polaroid polaroid--d reveal">
-        <div class="polaroid__img">
-          <p class="polaroid__placeholder">Add photo<br>here</p>
+        <div class="photo-card">
+          <div class="photo-card__img"><p class="photo-card__placeholder">Add photo<br>here</p></div>
         </div>
-        <p class="polaroid__caption">May 2025</p>
       </div>
+    </div>
+  </section>
 
+  <!-- ════════════════════════════════════════
+       CONTACT
+  ════════════════════════════════════════ -->
+  <section id="contact">
+    <div class="section-heading">
+      <h2 class="section-heading__title">Let's Work</h2>
+      <span class="section-heading__meta">Open for new projects</span>
+    </div>
+
+    <div class="card contact-card reveal">
+      <span class="card__tab" style="background:var(--yellow);"></span>
+      <h2 class="contact-card__heading">Have a story worth <em>telling?</em></h2>
+      <p class="contact-card__sub">
+        Open for freelance, collaborations, and brand partnerships.
+        Let's make something people will actually read.
+      </p>
+      <a class="btn btn--primary" href="mailto:omoyeni@email.com">Send Me A Message →</a>
+
+      <div class="contact-links">
+        <!-- UPDATE: replace with Omoyeni's real links -->
+        <a class="contact-link" href="https://substack.com" target="_blank" rel="noopener noreferrer">SUBSTACK ↗</a>
+        <a class="contact-link" href="mailto:omoyeni@email.com">EMAIL ↗</a>
+        <a class="contact-link" href="#" target="_blank" rel="noopener noreferrer">TWITTER / X ↗</a>
+        <a class="contact-link" href="#" target="_blank" rel="noopener noreferrer">LINKEDIN ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       WRITE & PONDER — footer animation
+  ════════════════════════════════════════ -->
+  <div class="write-strip" id="writeStrip">
+    <span class="write-strip__label">Always writing</span>
+    <div class="write-scene">
+      <svg viewBox="0 0 140 100" xmlns="http://www.w3.org/2000/svg" fill="none" aria-hidden="true">
+        <!-- notebook page -->
+        <rect x="10" y="14" width="90" height="76" rx="4" fill="var(--bg-soft)" stroke="var(--border-soft)" stroke-width="1.5"/>
+        <!-- ink marks (fade in as the pen "writes" each line) -->
+        <rect class="wp-mark1" x="20" y="28" width="65" height="4" rx="2" fill="var(--coral)" opacity="0"/>
+        <rect class="wp-mark2" x="20" y="53" width="65" height="4" rx="2" fill="var(--coral)" opacity="0"/>
+        <rect class="wp-mark3" x="20" y="78" width="65" height="4" rx="2" fill="var(--coral)" opacity="0"/>
+        <!-- seated figure, chin resting near thinking spot -->
+        <circle cx="118" cy="45" r="10" fill="var(--violet)" opacity="0.85"/>
+        <path d="M104 94 C104 74 110 62 118 64 C126 62 132 74 132 94 Z" fill="var(--violet)" opacity="0.6"/>
+        <!-- thought dots, only visible while pondering -->
+        <g class="wp-dots" opacity="0">
+          <circle cx="112" cy="24" r="2"   fill="var(--yellow)"/>
+          <circle cx="120" cy="19" r="2.4" fill="var(--yellow)"/>
+          <circle cx="129" cy="22" r="1.8" fill="var(--yellow)"/>
+        </g>
+        <!-- pen: animated via CSS transform, travels between the page lines and the pondering spot -->
+        <g class="wp-pen">
+          <line x1="0" y1="0" x2="10" y2="-8" stroke="var(--text)" stroke-width="2.6" stroke-linecap="round"/>
+          <circle cx="0" cy="0" r="1.6" fill="var(--coral)"/>
+        </g>
+      </svg>
     </div>
   </div>
-</section>
 
+</main>
 
 <!-- ════════════════════════════════════════
-     FOOTER (contact lives here now)
+     FOOTER
 ════════════════════════════════════════ -->
-<footer class="footer-section" id="contact">
-
-  <!-- Quill-drive strip: primary "in motion" animation, replays every
-       time this scrolls into view, same mechanic as a scroll-triggered
-       cross-screen animation -->
-  <div class="quill-strip" id="quillStrip" aria-hidden="true">
-    <div class="ink-trail" id="inkTrail"></div>
-    <svg class="quill-icon" id="quillIcon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" fill="none">
-      <path d="M28 6 C34 2 38 8 33 14 L14 34 L8 30 Z" fill="var(--coral)"/>
-      <path d="M14 34 L8 30 L10 37 Z" fill="var(--coral-dark)"/>
-      <path d="M28 6 C34 2 38 8 33 14" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"/>
-    </svg>
+<footer class="footer">
+  <div class="footer__inner">
+    <span class="footer__signature">Sisi · Writer &amp; Storyteller · Lagos, Nigeria</span>
+    <span class="footer__signature">© 2025 · Built by Cipher</span>
   </div>
-
-  <div class="footer-inner">
-    <p class="footer-signoff reveal">
-      That's everything for now — you can reach out, let's work together.
-    </p>
-
-    <div class="contact-inner">
-      <div>
-        <h2 class="contact__cta-heading reveal">
-          Have a story<br>worth <em>telling?</em>
-        </h2>
-        <p class="contact__subtext reveal">
-          Open for freelance, collaborations, and brand partnerships.
-          Let's make something people will actually read.
-        </p>
-        <div class="reveal">
-          <!--
-            UPDATE: replace the href with Omoyeni's real email address
-            e.g. href="mailto:omoyeni@gmail.com"
-          -->
-          <a class="btn btn--primary" href="mailto:omoyeni@email.com">Send me a message →</a>
-        </div>
-      </div>
-
-      <div class="contact-links reveal">
-        <!--
-          UPDATE: replace all href="#" and placeholder text
-          with Omoyeni's real social links and email
-        -->
-        <a class="contact-link" href="https://substack.com" target="_blank" rel="noopener noreferrer">
-          <span class="contact-link__label">Substack</span>
-          <span>Read my newsletter →</span>
-        </a>
-        <a class="contact-link" href="mailto:omoyeni@email.com">
-          <span class="contact-link__label">Email</span>
-          <span>omoyeni@email.com</span>
-        </a>
-        <a class="contact-link" href="#" target="_blank" rel="noopener noreferrer">
-          <span class="contact-link__label">Twitter / X</span>
-          <span>@omoyeni</span>
-        </a>
-        <a class="contact-link" href="#" target="_blank" rel="noopener noreferrer">
-          <span class="contact-link__label">LinkedIn</span>
-          <span>Omoyeni — Writer</span>
-        </a>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <span class="footer__logo">Sisi</span>
-      <span>© 2025 · Writer &amp; Storyteller · Lagos, Nigeria</span>
-    </div>
-  </div>
-
-  <!-- Pondering writer: bonus ambient animation, always looping, not
-       tied to scroll — a small quiet companion piece to the quill-drive -->
-  <svg class="pondering-writer" viewBox="0 0 84 84" xmlns="http://www.w3.org/2000/svg" fill="none" aria-hidden="true">
-    <line x1="8" y1="66" x2="76" y2="66" stroke="var(--border-strong)" stroke-width="2"/>
-    <g class="pw-dots">
-      <circle cx="30" cy="14" r="2"   fill="var(--coral)"/>
-      <circle cx="38" cy="10" r="2.4" fill="var(--coral)"/>
-      <circle cx="47" cy="12" r="1.8" fill="var(--coral)"/>
-    </g>
-    <circle cx="38" cy="30" r="10" fill="var(--coral)" opacity="0.85"/>
-    <path d="M22 66 C22 48 30 38 44 40 C56 42 60 52 58 66 Z" fill="var(--coral)" opacity="0.6"/>
-    <rect x="46" y="58" width="20" height="8" rx="1" fill="var(--bg)" stroke="var(--border-strong)" stroke-width="1"/>
-    <g class="pw-pen">
-      <line x1="50" y1="60" x2="62" y2="52" stroke="var(--text)" stroke-width="2.4" stroke-linecap="round"/>
-    </g>
-  </svg>
 </footer>
 
-
 <!-- ════════════════════════════════════════
-     LIGHTBOX — Book preview
+     LIGHTBOX
 ════════════════════════════════════════ -->
-<div
-  class="lightbox"
-  id="bookLightbox"
-  role="dialog"
-  aria-modal="true"
-  aria-label="Goodnight From Home — book preview"
->
+<div class="lightbox" id="bookLightbox" role="dialog" aria-modal="true" aria-labelledby="lbTitle">
   <div class="lightbox__panel">
-
     <div class="lightbox__left">
-      <div class="lightbox__cover-stars">✦ ✦ ✦</div>
-      <div class="lightbox__cover-title">Goodnight<br>From Home</div>
-      <div class="lightbox__cover-stars">✦ ✦ ✦</div>
-      <div class="lightbox__cover-by">by Omosisi</div>
+      <div class="book-cover__stars">✦ ✦ ✦</div>
+      <div class="book-cover__title">Goodnight<br>From Home</div>
+      <span class="font-mono-ui" style="font-size:11px; letter-spacing:0.2em; color:var(--coral);">BY OMOSISI</span>
     </div>
-
     <div class="lightbox__right">
       <button class="lightbox__close" id="lbClose" aria-label="Close preview">✕</button>
-
-      <span class="badge badge--pink">Children's Book · Bilingual</span>
-      <h2 class="lightbox__title">Goodnight From Home</h2>
+      <h3 class="lightbox__title" id="lbTitle">Goodnight From Home</h3>
 
       <div class="lightbox__verse">
-        <div class="lightbox__verse-label">Grandma's Song</div>
+        <p class="lightbox__verse-label">A PEEK INSIDE</p>
         <p>
-          Grandma sings when moon is high,<br>
-          Soft soft voice, like lullaby.<br>
-          "Sàgúnmò Sasara<br>
-          Sàkìtì wóìn wóìn laso àgbà nró"
-        </p>
-      </div>
-
-      <div class="lightbox__verse">
-        <div class="lightbox__verse-label">Sisi's Stories</div>
-        <p>
-          Aunty Sisi tells sweet tale,<br>
-          Soft soft words, they never fail.<br>
-          "Close your eyes, my baby dear,<br>
-          I'll write you stories, year to year."
+          "Ọlọ́run á sọ ọ́ di ọlọ́rọ̀ ní ọjọ́ ọ̀la," Grandma would whisper,
+          tucking the blanket beneath his chin. Tonight, she is far away —
+          but her lullaby travels the distance easily, carried on Aunty
+          Sisi's voice instead.
         </p>
       </div>
 
       <p class="lightbox__note">
-        A bilingual bedtime story woven from love, Yoruba lullabies, and the warmth of a Nigerian
-        home — written for one small boy, and every child who deserves to be tucked in with culture.
+        A bedtime story built from real memory — Grandma's Yoruba lullaby,
+        Mama's whispered prayers, and a promise made to a nephew who
+        wanted a story of his very own.
       </p>
 
       <div class="lightbox__actions">
-        <a class="lightbox__btn" href="https://canva.link/w779s5tu8d6ndkb" target="_blank" rel="noopener noreferrer">
-          Read the full book →
-        </a>
         <button class="lightbox__btn-ghost" id="lbGhost">Close preview</button>
       </div>
     </div>
-
   </div>
 </div>
 
-
-<!-- ════════════════════════════════════════
-     SCRIPTS
-════════════════════════════════════════ -->
 <script src="js/main.js"></script>
 </body>
 </html>
