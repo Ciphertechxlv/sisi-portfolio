@@ -1,11 +1,15 @@
 # Sisi Portfolio Website
 
-A portfolio website for Sisi (Omoyeni) — Writer & Storyteller. Structurally
-and visually matched to Sisi's Wanted Board: same colors, same masthead
-layout, same filter-chip and card patterns, same light/dark toggle. The
-serif/sans/mono type trio is the one thing kept from the previous design —
-everything else (layout, components, spacing, the footer) was rebuilt from
-the ground up to mirror the job board.
+A portfolio website for Sisi (Omoyeni) — Writer & Storyteller. Fully matched
+to Sisi's Wanted Board: same colors, same masthead layout, same filter-chip
+and card patterns, same light/dark toggle, and now the same type system too
+— Anton for headlines, Space Grotesk for body copy, JetBrains Mono for
+labels. Every place that used to carry the old italic Cormorant Garamond
+treatment (masthead name, section headings, card titles, the book cover,
+service panel name, contact heading, lightbox title) now uses uppercase
+Anton instead; quote-style copy (the book note, the about pull-quote, the
+lightbox verse) uses italic Space Grotesk rather than a faked italic on a
+display face that was never designed to be slanted.
 
 ---
 
@@ -126,4 +130,6 @@ Push to a repo, then Settings → Pages → Source: main branch.
 
 ## Tech Stack
 HTML5, CSS3, vanilla JavaScript. No build tools, no npm, no dependencies.
-Google Fonts: Cormorant Garamond, Jost, JetBrains Mono.
+Google Fonts: Anton, Space Grotesk, JetBrains Mono (loaded via a standard
+`<link>` tag, same as the job board — no `next/font/google` involved since
+this isn't a Next.js project).
