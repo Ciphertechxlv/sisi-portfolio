@@ -758,41 +758,41 @@ a:focus-visible, button:focus-visible {
 
 .footer__content { position: relative; z-index: 1; }
 
-/* Paper plane — flies across the whole band, replays every scroll-in
+/* Airplane — flies across once, left to right, replays every scroll-in
    (JS toggles .is-flying based on IntersectionObserver, it never
-   disconnects, so it's never a one-shot). */
+   disconnects, so it's never a one-shot). No z-index on this wrapper
+   on purpose: that would trap the plane in its own stacking context
+   and it could never actually appear in front of .footer__content. */
 .plane-strip {
   position: absolute;
   inset: 0;
   overflow: hidden;
   pointer-events: none;
-  z-index: 0;
 }
 .paper-plane {
   position: absolute;
-  top: 50%;
-  left: -12%;
-  width: 42px;
+  top: 8%;
+  left: -18%;
+  width: 62px;
   height: auto;
   opacity: 0;
+  z-index: 0;
   filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25));
 }
 .plane-strip.is-flying .paper-plane {
-  animation: planeFly 6.5s ease-in-out;
+  animation: planeFly 5.5s ease-in-out;
 }
 @keyframes planeFly {
-  0%   { left: -12%; top: 65%; opacity: 0;   transform: rotate(-15deg) scaleX(1); }
-  8%   { opacity: 1; }
-  20%  { left: 22%;  top: 14%; opacity: 1;   transform: rotate(-28deg) scaleX(1); }
-  35%  { left: 48%;  top: 58%; opacity: 1;   transform: rotate(16deg)  scaleX(1); }
-  50%  { left: 78%;  top: 12%; opacity: 1;   transform: rotate(-30deg) scaleX(1); }
-  58%  { left: 100%; top: 38%; opacity: 1;   transform: rotate(8deg)   scaleX(1); }
-  60%  { left: 108%; top: 42%; opacity: 0;   transform: rotate(8deg)   scaleX(1); }
-  61%  { left: 108%; top: 42%; opacity: 0;   transform: rotate(196deg) scaleX(-1); }
-  70%  { left: 90%;  top: 72%; opacity: 1;   transform: rotate(206deg) scaleX(-1); }
-  82%  { left: 58%;  top: 22%; opacity: 1;   transform: rotate(172deg) scaleX(-1); }
-  92%  { left: 24%;  top: 62%; opacity: 1;   transform: rotate(198deg) scaleX(-1); }
-  100% { left: -12%; top: 48%; opacity: 0;   transform: rotate(186deg) scaleX(-1); }
+  0%   { left: -18%; top: 8%;  opacity: 0; transform: rotate(-4deg); z-index: 0; }
+  6%   { opacity: 1; }
+  16%  { left: 14%;  top: 10%; opacity: 1; transform: rotate(-2deg); z-index: 2; }
+  30%  { left: 34%;  top: 30%; opacity: 1; transform: rotate(6deg);  z-index: 0; }
+  44%  { left: 53%;  top: 20%; opacity: 1; transform: rotate(-4deg); z-index: 2; }
+  58%  { left: 68%;  top: 50%; opacity: 1; transform: rotate(7deg);  z-index: 0; }
+  72%  { left: 82%;  top: 44%; opacity: 1; transform: rotate(-3deg); z-index: 2; }
+  86%  { left: 94%;  top: 74%; opacity: 1; transform: rotate(5deg);  z-index: 0; }
+  94%  { opacity: 1; }
+  100% { left: 116%; top: 78%; opacity: 0; transform: rotate(3deg);  z-index: 2; }
 }
 @media (prefers-reduced-motion: reduce) {
   .plane-strip.is-flying .paper-plane { animation: none; opacity: 0; }
