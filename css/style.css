@@ -528,6 +528,51 @@ a:focus-visible, button:focus-visible {
   margin-bottom: 0.9rem;
 }
 
+/* Mini book links inside the combined Children's Books card */
+.mini-books {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+  margin: 1.1rem 0;
+}
+.mini-book {
+  display: block;
+  border: 2px solid var(--border-soft);
+  border-radius: 0.9rem;
+  overflow: hidden;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.mini-book:hover { border-color: var(--coral); transform: translateY(-2px); }
+.mini-book__cover {
+  aspect-ratio: 4/3;
+  background: var(--bg-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  text-align: center;
+  padding: 0.75rem;
+}
+.mini-book__stars { color: var(--coral); letter-spacing: 0.25em; font-size: 0.7rem; }
+.mini-book__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 1.15rem;
+  line-height: 1;
+}
+.mini-book__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  background: var(--bg-card);
+}
+.mini-book__name { font-family: var(--font-mono); font-size: 0.66rem; color: var(--text-soft); }
+.mini-book__cta { font-family: var(--font-mono); font-size: 0.66rem; font-weight: 700; color: var(--yellow); flex-shrink: 0; }
+
 .book-cover {
   aspect-ratio: 16/9;
   background: var(--bg-soft);
@@ -711,6 +756,34 @@ a:focus-visible, button:focus-visible {
   .footer__band { padding: 4.5rem 2rem 3rem; }
 }
 
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .footer__grid { grid-template-columns: 1.3fr 1fr; }
+}
+
+.footer__visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.seal { width: 100%; max-width: 200px; height: auto; }
+.seal__rotor {
+  transform-origin: 100px 100px;
+  animation: sealSpin 20s linear infinite;
+}
+@keyframes sealSpin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .seal__rotor { animation: none; }
+}
+@media (max-width: 640px) {
+  .seal { max-width: 150px; }
+}
+
 .footer__eyebrow {
   display: block;
   font-family: var(--font-mono);
@@ -759,6 +832,19 @@ a:focus-visible, button:focus-visible {
   transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
 }
 .contact-link:hover { border-color: var(--coral); color: var(--coral); transform: translateY(-1px); }
+
+.contact-link--primary {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: #14110D;
+}
+.contact-link--primary:hover {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: #14110D;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(255,197,61,0.35);
+}
 
 /* Email button doubles as a dropdown trigger for Send / Copy */
 .email-menu-wrap { position: relative; }
@@ -947,4 +1033,5 @@ a:focus-visible, button:focus-visible {
   .footer__band { padding: 2.5rem 1rem 2rem; }
   .tabs__pills { grid-template-columns: 1fr; }
   .contact-links { grid-template-columns: 1fr; }
+  .mini-books { grid-template-columns: 1fr; }
 }
