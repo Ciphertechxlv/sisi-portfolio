@@ -298,7 +298,89 @@ function initCopyEmail() {
 }
 
 /* ─────────────────────────────────────────────
-   9. INIT ALL
+   9. PAPER PLANE — replays every scroll-in
+   Toggles a class based on isIntersecting instead
+   of unobserving after the first trigger, so it
+   always plays again, not just once per page load.
+───────────────────────────────────────────── */
+function initPaperPlane() {
+  const band  = document.getElementById('footerBand');
+  const strip = document.getElementById('planeStrip');
+  if (!band || !strip) return;
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Force a reflow before re-adding so the animation restarts
+        // even if it's re-entering while already mid-cycle.
+        strip.classList.remove('is-flying');
+        // eslint-disable-next-line no-unused-expressions
+        void strip.offsetWidth;
+        strip.classList.add('is-flying');
+      } else {
+        strip.classList.remove('is-flying');
+      }
+    });
+  }, { threshold: 0.35 });
+
+  io.observe(band);
+}
+
+/* ─────────────────────────────────────────────
+   10. TYPEWRITER — cycles through different words
+   forever in the "Always writing ___" footer line.
+───────────────────────────────────────────── */
+function initTypewriter() {
+  const el = document.getElementById('typewriterWord');
+  if (!el) return;
+
+  const words = ['essays', 'newsletters', "children's books", 'brand copy', 'fiction', 'grant proposals'];
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let i = 0;
+    setInterval(() => {
+      i = (i + 1) % words.length;
+      el.textContent = words[i];
+    }, 2600);
+    return;
+  }
+
+  let wordIndex = 0;
+  let charIndex = 0;
+  let deleting = false;
+
+  function tick() {
+    const word = words[wordIndex];
+
+    if (!deleting) {
+      charIndex++;
+      el.textContent = word.slice(0, charIndex);
+      if (charIndex === word.length) {
+        deleting = true;
+        setTimeout(tick, 1400);
+        return;
+      }
+      setTimeout(tick, 65);
+    } else {
+      charIndex--;
+      el.textContent = word.slice(0, charIndex);
+      if (charIndex === 0) {
+        deleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(tick, 250);
+        return;
+      }
+      setTimeout(tick, 35);
+    }
+  }
+
+  charIndex = words[0].length;
+  el.textContent = words[0];
+  setTimeout(() => { deleting = true; tick(); }, 1800);
+}
+
+/* ─────────────────────────────────────────────
+   11. INIT ALL
 ───────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
@@ -309,4 +391,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initEmailMenu();
   initCopyEmail();
   initNoteTriggers();
+  initPaperPlane();
+  initTypewriter();
 });

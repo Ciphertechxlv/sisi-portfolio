@@ -756,32 +756,38 @@ a:focus-visible, button:focus-visible {
   .footer__band { padding: 4.5rem 2rem 3rem; }
 }
 
-.footer__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2.5rem;
-  align-items: center;
-}
-@media (min-width: 900px) {
-  .footer__grid { grid-template-columns: 1.3fr 1fr; }
-}
+.footer__content { position: relative; z-index: 1; }
 
-.footer__visual {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Paper plane — flies across the whole band, replays every scroll-in
+   (JS toggles .is-flying based on IntersectionObserver, it never
+   disconnects, so it's never a one-shot). */
+.plane-strip {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
 }
-.seal { width: 100%; max-width: 200px; height: auto; }
-.seal__rotor {
-  transform-origin: 100px 100px;
-  animation: sealSpin 20s linear infinite;
+.paper-plane {
+  position: absolute;
+  top: 12%;
+  left: -10%;
+  width: 46px;
+  height: auto;
+  opacity: 0;
 }
-@keyframes sealSpin { to { transform: rotate(360deg); } }
+.plane-strip.is-flying .paper-plane {
+  animation: planeFly 3.4s ease-in-out;
+}
+@keyframes planeFly {
+  0%   { left: -10%;  opacity: 0; transform: rotate(-6deg) translateY(0); }
+  10%  { opacity: 0.9; }
+  50%  { transform: rotate(-2deg) translateY(-16px); }
+  90%  { opacity: 0.9; }
+  100% { left: 108%;  opacity: 0; transform: rotate(5deg) translateY(8px); }
+}
 @media (prefers-reduced-motion: reduce) {
-  .seal__rotor { animation: none; }
-}
-@media (max-width: 640px) {
-  .seal { max-width: 150px; }
+  .plane-strip.is-flying .paper-plane { animation: none; opacity: 0; }
 }
 
 .footer__eyebrow {
@@ -839,11 +845,11 @@ a:focus-visible, button:focus-visible {
   color: #14110D;
 }
 .contact-link--primary:hover {
-  background: var(--yellow);
-  border-color: var(--yellow);
-  color: #14110D;
+  background: var(--coral);
+  border-color: var(--coral);
+  color: #FAF3E4;
   transform: translateY(-2px);
-  box-shadow: 0 10px 22px rgba(255,197,61,0.35);
+  box-shadow: 0 10px 22px rgba(255,71,87,0.3);
 }
 
 /* Email button doubles as a dropdown trigger for Send / Copy */

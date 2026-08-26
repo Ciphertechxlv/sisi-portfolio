@@ -356,56 +356,45 @@
      not a boxed card sitting above a separate footer.
 ════════════════════════════════════════ -->
 <footer class="footer" id="contact">
-  <div class="footer__band">
+  <div class="footer__band" id="footerBand">
     <span class="card__tab" style="background:var(--yellow);"></span>
 
-    <div class="footer__grid">
-      <div class="footer__content">
-        <span class="footer__eyebrow">Open for new projects</span>
-        <h2 class="footer__heading">Have a story worth <em>telling?</em></h2>
-        <p class="footer__sub">
-          Open for freelance, collaborations, and brand partnerships.
-          Let's make something people will actually read.
-        </p>
+    <!-- Paper plane, replays every time this section scrolls into view -->
+    <div class="plane-strip" id="planeStrip" aria-hidden="true">
+      <svg class="paper-plane" viewBox="0 0 64 48" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 24 L60 4 L34 24 L60 44 Z" fill="var(--yellow)" stroke="var(--coral)" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M2 24 L34 24 L22 34 Z" fill="var(--bg-card)" opacity="0.55"/>
+      </svg>
+    </div>
 
-        <div class="contact-links" id="contactLinks">
-          <div class="email-menu-wrap">
-            <button class="contact-link contact-link--primary" type="button" id="emailMenuBtn" aria-haspopup="true" aria-expanded="false">EMAIL ↗</button>
-            <div class="email-menu" id="emailMenu" role="menu">
-              <a class="email-menu__item" href="mailto:omoyeniolacynthia@gmail.com" role="menuitem">Send Email</a>
-              <button class="email-menu__item" type="button" id="copyEmailBtn" data-email="omoyeniolacynthia@gmail.com" role="menuitem">
-                <span id="copyEmailLabel">Copy Email</span>
-              </button>
-            </div>
+    <div class="footer__content">
+      <span class="footer__eyebrow">Open for new projects</span>
+      <h2 class="footer__heading">Have a story worth <em>telling?</em></h2>
+      <p class="footer__sub">
+        Open for freelance, collaborations, and brand partnerships.
+        Let's make something people will actually read.
+      </p>
+
+      <div class="contact-links" id="contactLinks">
+        <div class="email-menu-wrap">
+          <button class="contact-link contact-link--primary" type="button" id="emailMenuBtn" aria-haspopup="true" aria-expanded="false">EMAIL ↗</button>
+          <div class="email-menu" id="emailMenu" role="menu">
+            <a class="email-menu__item" href="mailto:omoyeniolacynthia@gmail.com" role="menuitem">Send Email</a>
+            <button class="email-menu__item" type="button" id="copyEmailBtn" data-email="omoyeniolacynthia@gmail.com" role="menuitem">
+              <span id="copyEmailLabel">Copy Email</span>
+            </button>
           </div>
-          <a class="contact-link" href="https://substack.com/@omoyeniola?utm_source=share&amp;utm_medium=android&amp;r=59b3x9" target="_blank" rel="noopener noreferrer">SUBSTACK ↗</a>
-          <a class="contact-link" href="https://x.com/MoyeniO" target="_blank" rel="noopener noreferrer">TWITTER / X ↗</a>
-          <a class="contact-link" href="https://www.linkedin.com/in/omoyeni-olabode-5a5496233?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android" target="_blank" rel="noopener noreferrer">LINKEDIN ↗</a>
-          <a class="contact-link contact-link--primary" href="assets/cv/Omoyeni-Olabode-CV.pdf" target="_blank" rel="noopener noreferrer">CV ↗</a>
         </div>
-      </div>
-
-      <!-- Rotating seal — extends the VOL./EST. badge language into motion -->
-      <div class="footer__visual" aria-hidden="true">
-        <svg class="seal" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <path id="sealCircle" d="M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0"/>
-          </defs>
-          <circle cx="100" cy="100" r="98" fill="none" stroke="var(--border-soft)" stroke-width="2"/>
-          <g class="seal__rotor">
-            <text font-family="var(--font-mono)" font-size="10.5" letter-spacing="3" font-weight="700" fill="var(--yellow)">
-              <textPath href="#sealCircle" startOffset="0%">OPEN FOR STORIES ✦ OPEN FOR STORIES ✦ </textPath>
-            </text>
-          </g>
-          <circle cx="100" cy="100" r="48" fill="var(--bg-card)" stroke="var(--coral)" stroke-width="2"/>
-          <text x="100" y="112" text-anchor="middle" font-family="var(--font-display)" font-size="38" fill="var(--text)">✦</text>
-        </svg>
+        <a class="contact-link" href="https://substack.com/@omoyeniola?utm_source=share&amp;utm_medium=android&amp;r=59b3x9" target="_blank" rel="noopener noreferrer">SUBSTACK ↗</a>
+        <a class="contact-link" href="https://x.com/MoyeniO" target="_blank" rel="noopener noreferrer">TWITTER / X ↗</a>
+        <a class="contact-link" href="https://www.linkedin.com/in/omoyeni-olabode-5a5496233?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android" target="_blank" rel="noopener noreferrer">LINKEDIN ↗</a>
+        <a class="contact-link contact-link--primary" href="assets/cv/Omoyeni-Olabode-CV.pdf" target="_blank" rel="noopener noreferrer">CV ↗</a>
       </div>
     </div>
   </div>
 
   <div class="footer__inner">
-    <span class="write-tag font-mono-ui">Always writing<span class="write-cursor">_</span></span>
+    <span class="write-tag font-mono-ui">Always writing <span id="typewriterWord">essays</span><span class="write-cursor">_</span></span>
     <span class="footer__signature">Sisi · Writer &amp; Storyteller · Lagos, Nigeria</span>
     <span class="footer__signature">© 2026 · Built by <a class="footer__credit-link" href="https://www.linkedin.com/in/tumininu-akinola-a1a3a522b/" target="_blank" rel="noopener noreferrer">Cipher</a></span>
   </div>
