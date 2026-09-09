@@ -175,8 +175,30 @@ a:focus-visible, button:focus-visible {
   vertical-align: middle;
 }
 
-.masthead__bio {
+.masthead__lead {
   margin-top: 1.5rem;
+  max-width: 56ch;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.35rem;
+  color: var(--text);
+  line-height: 1.4;
+}
+@media (min-width: 640px) {
+  .masthead__lead { font-size: 1.55rem; }
+}
+
+.masthead__categories {
+  margin-top: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--coral);
+}
+
+.masthead__bio {
+  margin-top: 0.9rem;
   max-width: 56ch;
   font-size: 1rem;
   color: var(--text-soft);
@@ -661,6 +683,14 @@ a:focus-visible, button:focus-visible {
 .about-layout { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: start; }
 @media (min-width: 900px) {
   .about-layout { grid-template-columns: 1.1fr 0.9fr; gap: 3.5rem; }
+}
+
+.about__hi {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.35rem;
+  color: var(--text);
+  margin-bottom: 1.4rem;
 }
 
 .about__body p { font-size: 1rem; line-height: 1.9; margin-bottom: 1.2rem; font-weight: 300; }
